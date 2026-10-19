@@ -4,7 +4,7 @@
 
 ```bash
 # 1. Projeyi indirin
-git clone <repo-adresi>
+git clone https://github.com/oraoraorang/Backend-Geli-tirme
 cd taskflow
 
 # 2. Bağımlılıkları kurun
