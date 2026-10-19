@@ -1,0 +1,5 @@
+$kind: http-request
+name: Rapor - Bekleyen (GET /reports/pending)
+url: "{{baseUrl}}/reports/pending"
+method: GET
+order: 8000

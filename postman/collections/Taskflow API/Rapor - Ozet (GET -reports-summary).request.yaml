@@ -1,0 +1,5 @@
+$kind: http-request
+name: Rapor - Ozet (GET /reports/summary)
+url: "{{baseUrl}}/reports/summary"
+method: GET
+order: 9000

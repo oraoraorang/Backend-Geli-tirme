@@ -1,0 +1,70 @@
+{
+  "info": {
+    "name": "Taskflow API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    { "key": "baseUrl", "value": "http://localhost:3000" },
+    { "key": "taskId", "value": "1" }
+  ],
+  "item": [
+    {
+      "name": "1 - Gorev Ekleme (POST /tasks)",
+      "event": [{
+        "listen": "test",
+        "script": { "type": "text/javascript", "exec": [
+          "pm.test('Status 201', () => pm.response.to.have.status(201));",
+          "pm.collectionVariables.set('taskId', pm.response.json().id);"
+        ]}
+      }],
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": { "mode": "raw", "raw": "{\n  \"title\": \"Backend altyapısını kur\",\n  \"description\": \"Express projesini oluştur\",\n  \"priority\": \"high\",\n  \"assignee\": \"musa\",\n  \"dueDate\": \"2026-11-01\"\n}" },
+        "url": { "raw": "{{baseUrl}}/tasks", "host": ["{{baseUrl}}"], "path": ["tasks"] }
+      }
+    },
+    {
+      "name": "2 - Gorev Listeleme (GET /tasks)",
+      "event": [{ "listen": "test", "script": { "type": "text/javascript", "exec": ["pm.test('Status 200', () => pm.response.to.have.status(200));"] } }],
+      "request": { "method": "GET", "url": { "raw": "{{baseUrl}}/tasks", "host": ["{{baseUrl}}"], "path": ["tasks"] } }
+    },
+    {
+      "name": "3 - Gorev Detayi (GET /tasks/:id)",
+      "event": [{ "listen": "test", "script": { "type": "text/javascript", "exec": ["pm.test('Status 200', () => pm.response.to.have.status(200));"] } }],
+      "request": { "method": "GET", "url": { "raw": "{{baseUrl}}/tasks/{{taskId}}", "host": ["{{baseUrl}}"], "path": ["tasks", "{{taskId}}"] } }
+    },
+    {
+      "name": "4 - Gorev Guncelleme (PUT /tasks/:id)",
+      "event": [{ "listen": "test", "script": { "type": "text/javascript", "exec": ["pm.test('Status 200', () => pm.response.to.have.status(200));", "pm.test('status updated', () => pm.expect(pm.response.json().status).to.eql('in-progress'));"] } }],
+      "request": {
+        "method": "PUT",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": { "mode": "raw", "raw": "{\n  \"status\": \"in-progress\"\n}" },
+        "url": { "raw": "{{baseUrl}}/tasks/{{taskId}}", "host": ["{{baseUrl}}"], "path": ["tasks", "{{taskId}}"] }
+      }
+    },
+    {
+      "name": "5 - Gorev Silme (DELETE /tasks/:id)",
+      "event": [{ "listen": "test", "script": { "type": "text/javascript", "exec": ["pm.test('Status 200', () => pm.response.to.have.status(200));"] } }],
+      "request": { "method": "DELETE", "url": { "raw": "{{baseUrl}}/tasks/{{taskId}}", "host": ["{{baseUrl}}"], "path": ["tasks", "{{taskId}}"] } }
+    },
+    {
+      "name": "6 - Silinen Gorev 404 (GET /tasks/:id)",
+      "event": [{ "listen": "test", "script": { "type": "text/javascript", "exec": ["pm.test('Status 404', () => pm.response.to.have.status(404));"] } }],
+      "request": { "method": "GET", "url": { "raw": "{{baseUrl}}/tasks/{{taskId}}", "host": ["{{baseUrl}}"], "path": ["tasks", "{{taskId}}"] } }
+    },
+    {
+      "name": "Rapor - Tamamlanan (GET /reports/completed)",
+      "request": { "method": "GET", "url": { "raw": "{{baseUrl}}/reports/completed", "host": ["{{baseUrl}}"], "path": ["reports", "completed"] } }
+    },
+    {
+      "name": "Rapor - Bekleyen (GET /reports/pending)",
+      "request": { "method": "GET", "url": { "raw": "{{baseUrl}}/reports/pending", "host": ["{{baseUrl}}"], "path": ["reports", "pending"] } }
+    },
+    {
+      "name": "Rapor - Ozet (GET /reports/summary)",
+      "request": { "method": "GET", "url": { "raw": "{{baseUrl}}/reports/summary", "host": ["{{baseUrl}}"], "path": ["reports", "summary"] } }
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "lastId": 6,
+  "tasks": [
+    {
+      "id": 2,
+      "title": "test",
+      "status": "pending",
+      "priority": "high",
+      "assignee": "musa",
+      "dueDate": "2026-11-01",
+      "createdAt": "2026-10-19T17:21:25.575Z",
+      "updatedAt": "2026-10-19T17:21:25.575Z"
+    },
+    {
+      "id": 3,
+      "title": "Backend altyapısını kur",
+      "description": "Express projesini oluştur",
+      "status": "pending",
+      "priority": "high",
+      "assignee": "musa",
+      "dueDate": "2026-11-01",
+      "createdAt": "2026-10-19T17:25:47.795Z",
+      "updatedAt": "2026-10-19T17:25:47.795Z"
+    },
+    {
+      "id": 6,
+      "title": "Backend altyapısını kur",
+      "description": "Express projesini oluştur",
+      "status": "pending",
+      "priority": "high",
+      "assignee": "musa",
+      "dueDate": "2026-11-01",
+      "createdAt": "2026-10-19T17:51:01.254Z",
+      "updatedAt": "2026-10-19T17:51:01.254Z"
+    }
+  ]
+}

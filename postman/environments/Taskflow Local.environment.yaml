@@ -1,0 +1,8 @@
+name: Taskflow Local
+values:
+  - key: baseUrl
+    value: 'http://localhost:3000'
+    enabled: true
+  - key: taskId
+    value: '1'
+    enabled: true

@@ -1,0 +1,5 @@
+$kind: http-request
+name: Rapor - Tamamlanan (GET /reports/completed)
+url: "{{baseUrl}}/reports/completed"
+method: GET
+order: 7000

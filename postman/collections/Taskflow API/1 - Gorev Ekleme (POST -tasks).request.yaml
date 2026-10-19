@@ -1,0 +1,23 @@
+$kind: http-request
+name: 1 - Gorev Ekleme (POST /tasks)
+url: "{{baseUrl}}/tasks"
+method: POST
+headers:
+  Content-Type: application/json
+body:
+  type: text
+  content: |-
+    {
+      "title": "Backend altyapısını kur",
+      "description": "Express projesini oluştur",
+      "priority": "high",
+      "assignee": "musa",
+      "dueDate": "2026-11-01"
+    }
+scripts:
+  - type: afterResponse
+    code: |-
+      pm.test('Status 201', () => pm.response.to.have.status(201));
+      pm.collectionVariables.set('taskId', pm.response.json().id);
+    language: text/javascript
+order: 1000
