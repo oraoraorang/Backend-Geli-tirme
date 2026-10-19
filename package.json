@@ -1,0 +1,20 @@
+{
+  "name": "taskflow",
+  "version": "1.0.0",
+  "description": "Taskflow - Task and project management REST API (Node.js + Express)",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "node --watch src/server.js"
+  },
+  "keywords": [
+    "nodejs",
+    "express",
+    "rest-api",
+    "crud"
+  ],
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.22.3"
+  }
+}
